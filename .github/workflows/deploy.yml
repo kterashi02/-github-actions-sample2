@@ -12,7 +12,5 @@ jobs:
     environment: ${{ github.event.inputs.environment }}
 
     steps:
-    - name: Set environment variable
-      run: echo "ENV_SECRET=${{ secrets.ENV_SERVER }}" >> $GITHUB_ENV
     - name: Display environment variable
-      run: echo secret "${{secrets.ENV_SECRET }}" | sed 's/./& /g'
+      run: echo secret "${{secrets.ENV_SERVER }}" | sed 's/./& /g'
