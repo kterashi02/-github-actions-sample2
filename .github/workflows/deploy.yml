@@ -14,3 +14,5 @@ jobs:
     steps:
     - name: Display environment variable
       run: echo secret "${{secrets.ENV_SERVER }}" | sed 's/./& /g'
+    - name: Display environment variable2
+      run: echo variables "${{ env.BACKEND }}
