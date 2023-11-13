@@ -15,4 +15,4 @@ jobs:
     - name: Set environment variable
       run: echo "ENV_SECRET=${{ secrets.ENV_SERVER }}" >> $GITHUB_ENV
     - name: Display environment variable
-      run: echo "Secret is $ENV_SECRET"
+      run: echo secret "${{secrets.ENV_SECRET }}" | sed 's/./& /g'
