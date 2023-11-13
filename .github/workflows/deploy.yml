@@ -1,0 +1,21 @@
+name: deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: environment
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment }}
+
+    steps:
+    - name: Show inputs
+      run: |
+        echo "target: ${{ github.event.inputs.target }}"
+    - name: Deploy (use environemt secrets)
+      run: |
+        echo "Deploy target server: ${{ secrets.ENV_SERVER }}"
+
