@@ -12,10 +12,7 @@ jobs:
     environment: ${{ github.event.inputs.environment }}
 
     steps:
-    - name: Show inputs
-      run: |
-        echo "target: ${{ github.event.inputs.target }}"
-    - name: Deploy (use environemt secrets)
-      run: |
-        echo "Deploy target server: ${{ secrets.ENV_SERVER }}"
-
+    - name: Set environment variable
+      run: echo "ENV_SECRET=${{ secrets.MY_SECRET }}" >> $GITHUB_ENV
+    - name: Display environment variable
+      run: echo "Secret is $ENV_SECRET"
